@@ -1,0 +1,191 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+  padding-top: 70px;
+}
+
+/* Header Bar */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f1f1f1;
+  padding: 15px 20px;
+  border-bottom: 2px solid #ccc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Sidebar Top */
+.sidebar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+  border-bottom: 1px solid #8f0404;
+}
+
+.sidebar-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.sidebar-actions .icon {
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+  border-radius: 50%;
+  background-color: #f9f9f9;
+  width: 30px;  
+  height: 30px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.sidebar-actions .icon:hover {
+  color: #555;
+  transform: scale(1.4);
+}
+
+.app-title {
+  font-size: 24px;
+  font-family: cursive;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background-color: #ffffff;
+  border-right: 2px solid #ccc;
+  position: fixed;
+  top: 0;
+  left: -220px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar .close-btn {
+  text-align: right;
+  padding: 10px 20px;
+  font-size: 22px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 12px 20px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.sidebar ul li:hover {
+  background-color: #f0f0f0;
+}
+
+/* date of the data */
+.date-pick {
+  position: relative;
+  width: 220px; /* increase width here */
+  margin: 0 0 20px 0;
+}
+
+input[type="date"].fake-date {
+  color: transparent;
+  position: relative;
+  font-size: 1 rem; /* larger text */
+  padding: 5px;     /* more padding inside */
+  width: 30%;       /* take full container width */
+  box-sizing: border-box;
+  text-size-adjust: bolter;
+}
+
+input[type="date"].fake-date::before {
+  content: attr(data-label);
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 1 rem;
+  pointer-events: none;
+}
+
+
+
+
+/* Main Content */
+.content {
+  padding: 20px;
+}
+
+/* Total Boxes */
+.total-box {
+  background: #fff;
+  border: 2px solid #ccc;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  max-width: 400px;
+  margin-bottom: 15px; /* remove bottom spacing - handled by table-container */
+}
+
+.arrow {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.arrow.rotate {
+  transform: rotate(90deg);
+}
+
+/* Table container: spacing fix here */
+.table-container {
+  display: none;
+  background: #fff;
+  border: 2px solid #ccc;
+  max-width: 420px;
+  margin-top: -15px;
+  margin-bottom: 15px; /* ✅ space below */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+table th {
+  background: #f9f9f9;
+}
