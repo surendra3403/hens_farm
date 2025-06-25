@@ -5,7 +5,6 @@ body {
   padding-top: 70px;
 }
 
-/* Header Bar */
 .header {
   display: flex;
   align-items: center;
@@ -25,7 +24,6 @@ body {
   cursor: pointer;
 }
 
-/* Sidebar Top */
 .sidebar-top {
   display: flex;
   justify-content: space-between;
@@ -66,7 +64,6 @@ body {
   margin: 0 auto;
 }
 
-/* Sidebar */
 .sidebar {
   width: 220px;
   height: 100vh;
@@ -107,21 +104,19 @@ body {
   background-color: #f0f0f0;
 }
 
-/* date of the data */
 .date-pick {
   position: relative;
-  width: 220px; /* increase width here */
+  width: 220px;
   margin: 0 0 20px 0;
 }
 
 input[type="date"].fake-date {
   color: transparent;
   position: relative;
-  font-size: 1 rem; /* larger text */
-  padding: 5px;     /* more padding inside */
-  width: 30%;       /* take full container width */
+  font-size: 1rem;
+  padding: 5px;
+  width: 100%;
   box-sizing: border-box;
-  text-size-adjust: bolter;
 }
 
 input[type="date"].fake-date::before {
@@ -131,19 +126,14 @@ input[type="date"].fake-date::before {
   top: 50%;
   left: 10px;
   transform: translateY(-50%);
-  font-size: 1 rem;
+  font-size: 1rem;
   pointer-events: none;
 }
 
-
-
-
-/* Main Content */
 .content {
   padding: 20px;
 }
 
-/* Total Boxes */
 .total-box {
   background: #fff;
   border: 2px solid #ccc;
@@ -152,27 +142,36 @@ input[type="date"].fake-date::before {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  max-width: 400px;
-  margin-bottom: 15px; /* remove bottom spacing - handled by table-container */
+  max-width: 100%;
+  margin-bottom: 15px;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.total-box span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .arrow {
   font-size: 18px;
   transition: transform 0.3s ease;
+  flex-shrink: 0;
 }
 
 .arrow.rotate {
   transform: rotate(90deg);
 }
 
-/* Table container: spacing fix here */
 .table-container {
   display: none;
   background: #fff;
   border: 2px solid #ccc;
-  max-width: 420px;
+  max-width: 100%;
   margin-top: -15px;
-  margin-bottom: 15px; /* ✅ space below */
+  margin-bottom: 15px;
+  overflow-x: auto;
 }
 
 table {
@@ -188,4 +187,53 @@ table th, table td {
 
 table th {
   background: #f9f9f9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 15px;
+  }
+
+  .app-title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .sidebar {
+    width: 180px;
+  }
+
+  .sidebar ul li {
+    padding: 10px 15px;
+  }
+
+  .sidebar-actions .icon {
+    font-size: 18px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .date-pick {
+    width: 100%;
+  }
+
+  input[type="date"].fake-date {
+    font-size: 0.9rem;
+  }
+
+  .total-box {
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .total-box span {
+    font-size: 14px;
+  }
+
+  table th, table td {
+    font-size: 15px;
+    padding: 5px;
+  }
 }

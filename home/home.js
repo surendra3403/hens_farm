@@ -1,26 +1,24 @@
 function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    sidebar.classList.toggle("open");
-  }
-  
-  // Toggle functionality for each box
-  document.addEventListener("DOMContentLoaded", function () {
-    const boxes = document.querySelectorAll(".total-box");
-  
-    boxes.forEach((box) => {
-      box.addEventListener("click", function () {
-        const table = this.nextElementSibling;
-        const arrow = this.querySelector(".arrow");
-  
-        const isVisible = table.style.display === "block";
-        table.style.display = isVisible ? "none" : "block";
-        arrow.classList.toggle("rotate", !isVisible);
-      });
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.toggle("open");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const boxes = document.querySelectorAll(".total-box");
+
+  boxes.forEach((box) => {
+    box.addEventListener("click", function () {
+      const table = this.nextElementSibling;
+      const arrow = this.querySelector(".arrow");
+
+      const isVisible = table.style.display === "block";
+      table.style.display = isVisible ? "none" : "block";
+      arrow.classList.toggle("rotate", !isVisible);
     });
   });
+});
 
-
-// function for date pick for data to display
+// Date display functionality
 function formatDate(date) {
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -59,11 +57,8 @@ function overrideDisplayValue() {
 
 document.addEventListener('DOMContentLoaded', () => {
   const datePicker = document.getElementById('date-picker');
-
-  // Set today as default
   const todayISO = new Date().toISOString().split('T')[0];
   datePicker.value = todayISO;
-
   updateDateInput(todayISO);
 
   datePicker.addEventListener('change', () => {
@@ -71,6 +66,3 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDateInput(selectedISO);
   });
 });
-
-
-  
